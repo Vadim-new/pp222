@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.Car;
 import web.service.CarService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -20,14 +20,8 @@ public class CarsController {
     }
 
     @GetMapping(value = "/cars")
-    public String printCars(ModelMap model, HttpServletRequest request) {
-        int count = carService.getCarsList().size();
-        try {
-            count = Integer.parseInt(request.getParameter("count"));
-        } catch (Exception e) {
-        }
+    public String printCars(ModelMap model, @RequestParam(defaultValue = "5") String count) {
         List<Car> cars = carService.getCarsListByLimit(count);
-
         model.addAttribute("cars", cars);
         return "cars";
     }

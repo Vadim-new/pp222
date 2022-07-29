@@ -10,5 +10,5 @@ public interface CarService {
 
     List<Car> getCarsList();
 
-    List<Car> getCarsListByLimit(int limit);
+    List<Car> getCarsListByLimit(String limit);
 }

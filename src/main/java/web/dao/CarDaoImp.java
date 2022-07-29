@@ -28,11 +28,16 @@ public class CarDaoImp implements CarDao {
     }
 
     @Override
-    public List<Car> getCarsListByLimit(int limit) {
+    public List<Car> getCarsListByLimit(String limit) {
+        int intLimit = 0;
+        try {
+            intLimit = Integer.parseInt(limit);
+        } catch (Exception e) {
+        }
         List<Car> carsByLimit = new ArrayList<>();
         List<Car> cars = getCarsList();
         for (int i = 0; i < cars.size(); i++) {
-            if (limit <= i) break;
+            if (intLimit <= i) break;
             carsByLimit.add(cars.get(i));
         }
         return carsByLimit;

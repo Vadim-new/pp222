@@ -28,7 +28,7 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public List<Car> getCarsListByLimit(int limit) {
+    public List<Car> getCarsListByLimit(String limit) {
         return carDao.getCarsListByLimit(limit);
     }
 }
