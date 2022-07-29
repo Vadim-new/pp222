@@ -13,7 +13,8 @@ public class CarServiceImp implements CarService {
 
     private CarDao carDao;
 
-    public CarServiceImp(@Autowired CarDao carDao) {
+    @Autowired
+    public CarServiceImp(CarDao carDao) {
         this.carDao = carDao;
     }
 

@@ -15,7 +15,8 @@ public class CarsController {
 
     private CarService carService;
 
-    public CarsController(@Autowired CarService carService) {
+    @Autowired
+    public CarsController(CarService carService) {
         this.carService = carService;
     }
 
