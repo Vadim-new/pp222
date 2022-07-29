@@ -1,6 +1,8 @@
-package web.Model;
+package web.model;
 
 import org.springframework.stereotype.Component;
+
+import java.util.Objects;
 
 @Component
 public class Car {
@@ -48,5 +50,18 @@ public class Car {
                 ", color='" + color + '\'' +
                 ", fuelReserve=" + fuelReserve +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return fuelReserve == car.fuelReserve && model.equals(car.model) && color.equals(car.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, color, fuelReserve);
     }
 }

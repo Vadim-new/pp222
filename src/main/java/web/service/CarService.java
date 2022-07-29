@@ -1,14 +1,14 @@
 package web.service;
 
-import web.Model.Car;
+import web.model.Car;
 
 import java.util.List;
 
 public interface CarService {
 
-    void add(Car car);
+    void addCar(Car car);
 
-    List<Car> listCars();
+    List<Car> getCarsList();
 
-    List<Car> listCarsByLimit(int limit);
+    List<Car> getCarsListByLimit(int limit);
 }
